@@ -32,15 +32,15 @@
        int respStringLen;               /* Length of received response */
 
 
-       // if (!argv[1]) {
-       //        fprintf(stderr,"No server IP sepcified at arg 1\n");
-       //        exit(1);
-       // }
+       if (!argv[1]) {
+              fprintf(stderr,"No server IP sepcified at arg 1\n");
+              exit(1);
+       }
 
-       // else if (!argv[2]) {
-       //        fprintf(stderr,"No port Number Sepcified at arg 2\n");
-       //        exit(2);
-       // }
+       else if (!argv[2]) {
+              fprintf(stderr,"No port Number Sepcified at arg 2\n");
+              exit(2);
+       }
 
        // else if (!argv[3]) {
        //        fprintf(stderr,"no message string specified at arg 3\n");
@@ -64,8 +64,8 @@
 
         printf("Size struct: %d\n", sizeof(newMess));
 
-        servIP = "127.0.0.1";           /* First arg: server IP address (dotted quad) */
-        echoServPort = 8888;  /* Use given port, if any */
+        servIP = argv[0];           /* First arg: server IP address (dotted quad) */
+        echoServPort = argv;  /* Use given port, if any */
 
         /* Create a datagram/UDP socket */
         if ((sock = socket(PF_INET, SOCK_DGRAM, IPPROTO_UDP)) < 0)
